@@ -161,111 +161,288 @@
 // end
 // p select_even_items(["a", "b", "c", "d", "e", "f"])
 
-function selectEvenItems(strings) {
-  let result = [];
-  let index = 0;
-  strings.forEach(function (string) {
-    if (index % 2 === 0) {
-      result.push(string);
+// function selectEvenItems(strings) {
+//   let result = [];
+//   let index = 0;
+//   strings.forEach(function (string) {
+//     if (index % 2 === 0) {
+//       result.push(string);
+//     }
+//     index++;
+//   });
+//   return result;
+// }
+
+// console.log(selectEvenItems(["a", "b", "c", "d", "e", "f"]));
+
+// // # Write a method that accepts one argument - an array of numbers. The method should return the greatest number. For example, if the input is [5, 4, 8, 1, 2], the output should be 8.
+// // def max(numbers)
+// //   currentMax = numbers[0]
+// //   numbers.each do |number|
+// //     if number > currentMax
+// //       currentMax = number
+// //     end
+// //   end
+// //   currentMax
+// // end
+// // p max([5, 4, 8, 1, 2])
+
+// function max(numbers) {
+//   let currentMax = 0;
+//   numbers.forEach(function (number) {
+//     if (number > currentMax) {
+//       currentMax = number;
+//     }
+//   });
+//   return currentMax;
+// }
+
+// console.log(max([5, 4, 8, 1, 2]));
+
+// // # Write a method that accepts one argument - an array of numbers that are in ascending order. The method that returns a new array with the same values in descending order. However, do not use the "reverse" method built into Ruby.
+// // def descending(numbers)
+// //   result = []
+// //   index = numbers.length - 1
+// //   numbers.length.times do
+// //     result << numbers[index]
+// //     index = index - 1
+// //   end
+// //   result
+// // end
+// // p descending([1, 3, 5, 7])
+
+// function descending(numbers) {
+//   let result = [];
+//   let index = numbers.length - 1;
+//   while (index > -1) {
+//     result.push(numbers[index]);
+//     index--;
+//   }
+//   return result;
+// }
+
+// console.log(descending([1, 3, 5, 7]));
+
+// // # Write a method that accepts two arrays of numbers, and returns an array of every sum of every combination of single numbers from the first and second array. For example, if the method receives [1, 5, 10] and [100, 500, 1000], the method should return this array: [101, 501, 1001, 105, 505, 1005, 110, 510, 1010].
+// // def sum_combinations(numbers1, numbers2)
+// //   result = []
+// //   numbers1.each do |number1|
+// //     numbers2.each do |number2|
+// //       result << number1 + number2
+// //     end
+// //   end
+// //   result
+// // end
+// // p sum_combinations([1, 5, 10], [100, 500, 1000])
+
+// function sumCombinations(numbers1, numbers2) {
+//   let result = [];
+//   numbers1.forEach(function (number1) {
+//     numbers2.forEach(function (number2) {
+//       result.push(number1 + number2);
+//     });
+//   });
+//   return result;
+// }
+
+// console.log(sumCombinations([1, 5, 10], [100, 500, 1000]));
+
+// // # Write a method that accepts a number and returns its factorial. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
+// // def factorial(number)
+// //   result = 1
+// //   current_number = number
+// //   number.times do
+// //     result = result * current_number
+// //     current_number = current_number - 1
+// //   end
+// //   result
+// // end
+// // p factorial(5)
+
+// function factorial(number) {
+//   let result = 1;
+//   while (number > 0) {
+//     result *= number;
+//     number--;
+//   }
+//   return result;
+// }
+
+// console.log(factorial(5));
+
+// 1. Write a function that takes in an array of numbers and returns its sum.
+// function sumArray(numbers) {
+//   let sum = 0;
+//   let index = 0;
+//   while (index < numbers.length) {
+//     sum += numbers[index];
+//     index++;
+//   }
+//   return sum;
+// }
+
+// console.log(sumArray([1,2,3,4]));
+// 2. Write a function that takes in an array of strings and returns the smallest string.
+// function smallestString(strings) {
+//   let smallest = "";
+//   let smallestLength = 3000;
+//   strings.forEach(function (string) {
+//     if (smallestLength > string.length) {
+//       smallestLength = string.length;
+//       smallest = string;
+//     }
+//   });
+//   return smallest;
+// }
+
+// console.log(smallestString(["potato", "cheese", "ash", "bananananananana", "foot"]));
+// 3. Write a function that takes in an array of numbers and returns a new array with the numbers in reverse order.
+// function reverseNumbers(numbers) {
+//   let index = numbers.length - 1;
+//   let result = [];
+//   while (index >= 0) {
+//     result.push(numbers[index]);
+//     index--;
+//   }
+//   return result;
+// }
+
+// console.log(reverseNumbers([1,2,3,4,5]));
+// 4. Write a function that takes in an array of words and returns the number of words that begin with the letter “a”.
+// function countWordsBeginningWithA(strings) {
+//   let count = 0;
+//   strings.forEach(function (string) {
+//     if (string[0] === "a") {
+//       count++;
+//     }
+//   });
+//   return count;
+// }
+
+// console.log(countWordsBeginningWithA(["apple", "banana", "apricot", "mango", "alfonzo"]));
+// 5. Write a function that takes in an array of strings and joins them together to make a single string separated by commas.
+// function combineStrings(strings) {
+//   let result = strings[0];
+//   let index = 1;
+//   while (index < strings.length) {
+//     result += ", " + strings[index];
+//     index++;
+//   }
+//   return result;
+// }
+
+// console.log(combineStrings(["apple", "banana", "apricot", "mango", "alfonzo"]));
+// 6. Write a function that takes in an array of numbers and returns the product of all the numbers (each number multiplied by each other). 
+// function product(numbers) {
+//   let product = 1;
+//   numbers.forEach(function (number) {
+//     product *= number;
+//   });
+//   return product;
+// }
+
+// console.log(product([1,2,3,4,5,6]));
+// 7. Write a function that takes in an array of numbers and returns the two smallest numbers.
+// function twoSmallest(numbers) {
+//   if (numbers[0] <= numbers[1]) {
+//     var firstSmallest = numbers[0];
+//     var secondSmallest = numbers[1];
+//   } else {
+//     var firstSmallest = numbers[1];
+//     var secondSmallest = numbers[0];
+//   }
+//   let index = 2;
+//   while (index < numbers.length) {
+//     if (numbers[index] < secondSmallest) {
+//       if (numbers[index] < firstSmallest) {
+//         secondSmallest = firstSmallest;
+//         firstSmallest = numbers[index];
+//       } else {
+//         secondSmallest = numbers[index];
+//       }
+//     }
+//     index++;
+//   }
+//   let result = [];
+//   result.push(firstSmallest);
+//   result.push(secondSmallest);
+//   return result;
+// }
+
+// console.log(twoSmallest([15,16,3,8,1,19]));
+// 8. Write a function that takes in an array of numbers and returns a count of how many zeros are in the array.
+// function howManyZeros(numbers) {
+//   let count = 0;
+//   numbers.forEach(function (number) {
+//     if (number === 0) {
+//       count++;
+//     }
+//   });
+//   return count;
+// }
+
+// console.log(howManyZeros([15,16,3,8,1,19,0,0,0]));
+// 9. Write a function that takes in an array of numbers and returns true if all the numbers are bigger than 10, otherwise returns false.
+// function allBiggerThanTen(numbers) {
+//   let result = true;
+//   numbers.forEach(function (number) {
+//     if (number <= 10) {
+//       result = false;
+//     }
+//   });
+//   return result;
+// }
+
+// console.log(allBiggerThanTen([15,16,30,80,100,19,1]));
+// 10. Write a function that takes in an array of words and returns the number of times the letter “a” appeared in total.
+// function countA(strings) {
+//   let count = 0;
+//   strings.forEach(function (string) {
+//     let index = 0;
+//     while (index < string.length) {
+//       if (string[index] === "a") {
+//         count++;
+//       }
+//       index ++;
+//     }
+//   });
+//   return count;
+// }
+
+// console.log(countA(["apple", "banana", "apricot", "mango", "alfoaaanzo"]));
+// BONUS PROBLEMS
+// Write a function that accepts a string and returns whether it’s a palindrome. 
+// function palindromeCheck(string) {
+//   if (string === string.split("").reverse().join("")) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(palindromeCheck("taquito"));
+// console.log(palindromeCheck("god dog"));
+// Write a function to generate/print/store the first “n” prime numbers.
+function listPrimes(howMany) {
+  let number = 2;
+  let primes = [];
+  while (primes.length < howMany) {
+    let index = 2;
+    let prime = true;
+    while (index <= Math.sqrt(number)) {
+      if (number % index === 0) {
+        prime = false;
+        break;
+      }
+      index++;
     }
-    index++;
-  });
-  return result;
-}
-
-console.log(selectEvenItems(["a", "b", "c", "d", "e", "f"]));
-
-// # Write a method that accepts one argument - an array of numbers. The method should return the greatest number. For example, if the input is [5, 4, 8, 1, 2], the output should be 8.
-// def max(numbers)
-//   currentMax = numbers[0]
-//   numbers.each do |number|
-//     if number > currentMax
-//       currentMax = number
-//     end
-//   end
-//   currentMax
-// end
-// p max([5, 4, 8, 1, 2])
-
-function max(numbers) {
-  let currentMax = 0;
-  numbers.forEach(function (number) {
-    if (number > currentMax) {
-      currentMax = number;
+    if (prime === true) {
+      primes.push(number);
     }
-  });
-  return currentMax;
-}
-
-console.log(max([5, 4, 8, 1, 2]));
-
-// # Write a method that accepts one argument - an array of numbers that are in ascending order. The method that returns a new array with the same values in descending order. However, do not use the "reverse" method built into Ruby.
-// def descending(numbers)
-//   result = []
-//   index = numbers.length - 1
-//   numbers.length.times do
-//     result << numbers[index]
-//     index = index - 1
-//   end
-//   result
-// end
-// p descending([1, 3, 5, 7])
-
-function descending(numbers) {
-  let result = [];
-  let index = numbers.length - 1;
-  while (index > -1) {
-    result.push(numbers[index]);
-    index--;
+    number++;
   }
-  return result;
+  return primes;
 }
 
-console.log(descending([1, 3, 5, 7]));
-
-// # Write a method that accepts two arrays of numbers, and returns an array of every sum of every combination of single numbers from the first and second array. For example, if the method receives [1, 5, 10] and [100, 500, 1000], the method should return this array: [101, 501, 1001, 105, 505, 1005, 110, 510, 1010].
-// def sum_combinations(numbers1, numbers2)
-//   result = []
-//   numbers1.each do |number1|
-//     numbers2.each do |number2|
-//       result << number1 + number2
-//     end
-//   end
-//   result
-// end
-// p sum_combinations([1, 5, 10], [100, 500, 1000])
-
-function sumCombinations(numbers1, numbers2) {
-  let result = [];
-  numbers1.forEach(function (number1) {
-    numbers2.forEach(function (number2) {
-      result.push(number1 + number2);
-    });
-  });
-  return result;
-}
-
-console.log(sumCombinations([1, 5, 10], [100, 500, 1000]));
-
-// # Write a method that accepts a number and returns its factorial. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
-// def factorial(number)
-//   result = 1
-//   current_number = number
-//   number.times do
-//     result = result * current_number
-//     current_number = current_number - 1
-//   end
-//   result
-// end
-// p factorial(5)
-
-function factorial(number) {
-  let result = 1;
-  while (number > 0) {
-    result *= number;
-    number--;
-  }
-  return result;
-}
-
-console.log(factorial(5));
+console.log(listPrimes(1000000));
+// Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won. (edited) 
