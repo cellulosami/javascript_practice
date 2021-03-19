@@ -423,26 +423,78 @@
 // console.log(palindromeCheck("taquito"));
 // console.log(palindromeCheck("god dog"));
 // Write a function to generate/print/store the first “n” prime numbers.
-function listPrimes(howMany) {
-  let number = 2;
-  let primes = [];
-  while (primes.length < howMany) {
-    let index = 2;
-    let prime = true;
-    while (index <= Math.sqrt(number)) {
-      if (number % index === 0) {
-        prime = false;
-        break;
-      }
-      index++;
+// function listPrimes(howMany) {
+//   let number = 2;
+//   let primes = [];
+//   while (primes.length < howMany) {
+//     let index = 2;
+//     let prime = true;
+//     while (index <= Math.sqrt(number)) {
+//       if (number % index === 0) {
+//         prime = false;
+//         break;
+//       }
+//       index++;
+//     }
+//     if (prime === true) {
+//       primes.push(number);
+//     }
+//     number++;
+//   }
+//   return primes;
+// }
+
+// console.log(listPrimes(1000000));
+// Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won. (edited) 
+
+var matrix = [
+  ["X", "-", "O"],
+  ["-", "O", "O"],
+  ["O", "-", "-"]
+];
+
+matrix.forEach(function (line) {
+  console.log(line);
+});
+
+function ticTacToeVictoryCheck(board) {
+  let winnerIs = "none";
+  for (var i = 0; i < matrix.length; i++) {
+    //vertical
+    if (matrix[0][i] === "X" && matrix[1][i] === "X" && matrix[2][i] === "X") {
+      winnerIs = "X";
+      break;
     }
-    if (prime === true) {
-      primes.push(number);
+    if (matrix[0][i] === "O" && matrix[1][i] === "O" && matrix[2][i] === "O") {
+      winnerIs = "O";
+      break;
     }
-    number++;
+
+    //horizontal
+    if (matrix[i][0] === "X" && matrix[i][1] === "X" && matrix[i][2] === "X") {
+      winnerIs = "X";
+      break;
+    }
+    if (matrix[i][0] === "O" && matrix[i][1] === "O" && matrix[i][2] === "O") {
+      winnerIs = "O";
+      break;
+    }
   }
-  return primes;
+  //top-left-bot-right
+  if (matrix[0][0] === "X" && matrix[1][1] === "X" && matrix[2][2] === "X") {
+    winnerIs = "X";
+  }
+  if (matrix[0][0] === "O" && matrix[1][1] === "O" && matrix[2][2] === "O") {
+    winnerIs = "O";
+  }
+  //top-right-bot-left
+  if (matrix[0][2] === "X" && matrix[1][1] === "X" && matrix[2][0] === "X") {
+    winnerIs = "X";
+  }
+  if (matrix[0][2] === "O" && matrix[1][1] === "O" && matrix[2][0] === "O") {
+    winnerIs = "O";
+  }
+  return "Winner is: " + winnerIs;
 }
 
-console.log(listPrimes(1000000));
-// Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won. (edited) 
+console.log(ticTacToeVictoryCheck(matrix));
